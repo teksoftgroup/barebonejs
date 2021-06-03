@@ -28,7 +28,7 @@
 
     //return the storage based on the type. Initially it will return the session storage        
     function getStorageType(type) {
-        var storageType;
+        let storageType;
 
         if (!isWebAPIStorageSupported()) {
             storageType = cookieStorage;
@@ -49,7 +49,7 @@
      // fallback if localStorage/sessionStorage is not supported
      var cookieStorage = {
         getItem: function getItem(name) {
-            //name,value,cookies <- get all the cookies
+            //name,value,coo,kies <- get all the cookies
             var n, v, cookies = document.cookie.split(";");
             //loop through all the cookies
             for (var i = 0; i < cookies.length; i++) {
