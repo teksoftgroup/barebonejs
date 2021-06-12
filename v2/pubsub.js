@@ -1,11 +1,11 @@
 
 export default pubsub = {
     events: {},
-    on: function(eventName, callback){
+    on: (eventName, callback) => {
         this.events[eventName] = this.events[eventName] || [];
         this.events[eventName].push(callback);
     },
-    off: function(eventName, callback){
+    off:(eventName, callback) => {
         if (this.events[eventName]) {
             for (var i = 0; i < this.events[eventName].length; i++) {
                 if (this.events[eventName][i] === callback) {
@@ -14,6 +14,13 @@ export default pubsub = {
                 }
             }
         }
+    },
+    emit: (eventName, data) => {
+        if (this.events[eventName]) {
+            //loops through all the events 
+            this.events[eventName].forEach(function (event) {
+                event.cb(data);
+            });
+        }
     }
-
 }

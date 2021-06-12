@@ -8,18 +8,14 @@
 </head>
 <body>
     
-    <div id="root">
-        <h1 :text="hello there"></h1>
-        <span :text="testing"></span>
+    <div x-data="{count : 0}">
+        <button @click="count++">+</button>
+        <button @click="count--">-</button>
+        <span :text="count"></span>
+        <span :show="count > 2">I am over 2</span>
     </div>
 
-
     <script src="v1/dom.js"></script>
-    <script>
-        let root = document.getElementById('root');
-        dom.scan(root, el => {
-            console.log(el);
-        });
-    </script>
+    
 </body>
 </html>
