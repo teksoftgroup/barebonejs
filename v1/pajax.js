@@ -1,5 +1,6 @@
 (function(module){
     'use strict';
+    //more comments 
     
     function ajax(verb, url, data, type, headers) {
         var promise = new Promise((resolve, reject) => {
