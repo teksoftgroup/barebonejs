@@ -1,26 +1,31 @@
 
-export default pubsub = {
-    events: {},
-    on: (eventName, callback) => {
-        this.events[eventName] = this.events[eventName] || [];
-        this.events[eventName].push(callback);
-    },
-    off:(eventName, callback) => {
-        if (this.events[eventName]) {
-            for (var i = 0; i < this.events[eventName].length; i++) {
-                if (this.events[eventName][i] === callback) {
-                    this.events[eventName].splice(i, 1);
-                    break;
-                }
-            }
+export function eventify(object){
+
+    let eventListeners = new Map();
+    
+    Object.assign(object, {
+        on, off, emit
+    });
+
+    function on(eventName, handler){
+        let handlers = eventListeners.get(eventName);
+        if(!handlers){
+            handlers = new Set();
+            eventListeners.set(eventName, handlers);
         }
-    },
-    emit: (eventName, data) => {
-        if (this.events[eventName]) {
-            //loops through all the events 
-            this.events[eventName].forEach(function (event) {
-                event.cb(data);
-            });
-        }
+        handlers.add(handler);
+    }
+
+    function off(eventName, handler){
+        let handlers = eventListeners.get(eventName);
+        if(!handlers)return;
+
+        handlers.delete(handler);
+    }
+
+    function emit(eventName, ...args){
+        let handlers = eventListeners.get(eventName);
+        if(!handlers)return;
+        handlers.forEach(handler => handler.apply(this, args));
     }
 }
