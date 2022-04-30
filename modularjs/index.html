@@ -5,6 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Modular js</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .hero-unit{
+            background-color: #EEE;
+            width: 500px;
+            margin: 10px auto;
+            text-align: center;
+            border-radius: 3px;
+            padding: 20px;
+        }
+
+        #peopleModule{
+            width: 500px;
+            margin: 5px auto;
+            text-align: center;
+        }
+
+        #people{
+            margin-top: 3px;
+        }
+        
+        #people li {
+            border: solid 1px green;
+            list-style: none;
+        }
+    </style>
 </head>
 <body>
     
@@ -13,6 +44,7 @@
     </div>
 
     <div id="peopleModule">
+
         <h1>People</h1>
         <input type="text" placeholder="name">
         <button id="addPerson">Add Person</button>
@@ -22,7 +54,7 @@
                 {{#people}}
                     <li>
                         <span>{{.}}</span>
-                        <i class="delete">X</i>
+                        <i class="del">X</i>
                     </li>
                 {{/people}}
 
@@ -30,8 +62,8 @@
         </ul>
     </div>
 
-    <script src="../libs/jquery.min.js"></script>
-    <script src="../libs/mustache.js"></script>
-    <script src="module.js"></script>
+    <script src="./jquery.min.js"></script>
+    <script src="./mustache.js"></script>
+    <script type="module" src="./module.js"></script>
 </body>
 </html>

@@ -54,9 +54,9 @@
             //loop through all the cookies
             for (var i = 0; i < cookies.length; i++) {
                 //get the name before the equal sign
-                n = (cookies[i].substr(0, cookies[i].indexOf("="))).trim();
+                n = (cookies[i].substring(0, cookies[i].indexOf("="))).trim();
                 //get the value after the equal sign
-                v = cookies[i].substr(cookies[i].indexOf("=") + 1);
+                v = cookies[i].substring(cookies[i].indexOf("=") + 1);
                 //if we have a match return the cookie value
                 if (name === n) {
                     return unescape(v);
@@ -94,7 +94,7 @@
             var n, cookies = document.cookie.split(";");
             //loop through all the cookies and expire every name found
             for (var i = 0; i < cookies.length; i++) {
-                n = (cookies[i].substr(0, cookies[i].indexOf("="))).trim();
+                n = (cookies[i].substring(0, cookies[i].indexOf("="))).trim();
                 this.set(n);
             }
         }
@@ -117,4 +117,4 @@
     };
 
     return module;
-})(window.storage = widow.storage || {})
+})(window.storage = window.storage || {})

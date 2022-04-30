@@ -761,4 +761,5 @@ mustache.Scanner = Scanner;
 mustache.Context = Context;
 mustache.Writer = Writer;
 
-export default mustache;
+// export default mustache;
+window.mustache = mustache;

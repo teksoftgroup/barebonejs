@@ -8,6 +8,7 @@ $('#peopleModule').find('button').on('click', function() {
         people: people
     };
 
+    
     $('#peopleModule').find('ul').html(mustache.render(template, data));
 });
 
