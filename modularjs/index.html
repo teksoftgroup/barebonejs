@@ -14,6 +14,7 @@
 
         .hero-unit{
             background-color: #EEE;
+            border: solid 1px #bdc3c7;
             width: 500px;
             margin: 10px auto;
             text-align: center;
@@ -29,11 +30,30 @@
 
         #people{
             margin-top: 3px;
+            display: block;
         }
         
         #people li {
             border: solid 1px green;
+            background-color: #c8f7c5;
+            border-radius: 3px;
             list-style: none;
+            display:inline-block;
+            padding: 5px 15px;
+            margin: 3px;
+
+        }
+        .del{
+            border-radius: 100px;
+            border: solid 1px red;
+            width: 10px;
+            height: 10px;
+            background-color: red;
+            cursor: pointer;
+        }
+
+        #txtInput {
+            font-size: x-large;
         }
     </style>
 </head>
@@ -46,7 +66,7 @@
     <div id="peopleModule">
 
         <h1>People</h1>
-        <input type="text" placeholder="name">
+        <input id="txtInput" type="text" placeholder="name">
         <button id="addPerson">Add Person</button>
         <ul id="people">
             <script id="people-template" type="text/template">
@@ -64,6 +84,6 @@
 
     <script src="./jquery.min.js"></script>
     <script src="./mustache.js"></script>
-    <script type="module" src="./module.js"></script>
+    <script type="module" src="./module1.js"></script>
 </body>
 </html>

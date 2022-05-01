@@ -11,7 +11,7 @@ export class Http {
         });
     }
 
-    get(url,headers){
+    get(url,headers = {}){
         return fetch(url, {
             method: 'GET',
             headers: headers,
@@ -19,7 +19,7 @@ export class Http {
         });
     }
 
-    post(url, headers, data) {
+    post(url, headers = {}, data) {
         return fetch(url, {
             method: 'POST',
             headers: headers,
@@ -53,3 +53,5 @@ export class Http {
         })
     }
 }
+
+module.exports = http;
