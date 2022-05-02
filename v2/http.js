@@ -1,4 +1,4 @@
-export class Http {
+class Http {
     
     request(verb, url, data, headers, cachemode = 'default'){
 
@@ -54,4 +54,4 @@ export class Http {
     }
 }
 
-module.exports = http;
+module.exports = Http;
